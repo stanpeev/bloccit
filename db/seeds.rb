@@ -17,6 +17,12 @@ posts = Post.all
     )
 end
 
+unique_post = [{title: "This is a new unique title", body: "This is a unique body"}]
+
+unique_post.each do |attributes|
+   Post.create(attributes) unless Post.where(attributes).first
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
