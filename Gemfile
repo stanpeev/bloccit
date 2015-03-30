@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 
 group :development do
   gem 'sqlite3'
+  gem 'rails-erd'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
