@@ -1,5 +1,7 @@
 require 'faker'
 
+
+
 # Create Users
 5.times do
   user = User.new(
@@ -39,6 +41,16 @@ topics = Topic.all
     )
 end
 posts = Post.all
+
+
+# Create Summaries
+5.times do
+   Summary.create!(
+     name:         Faker::Lorem.sentence,
+     description:  Faker::Lorem.paragraph
+   )
+ end
+Summaries = Summary.all
 
 
 #Create Comments
@@ -102,5 +114,6 @@ puts "Seed finished"
 puts "#{Topic.count} topics created"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
+puts "#{Summary.count} summaries created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} adverts created"

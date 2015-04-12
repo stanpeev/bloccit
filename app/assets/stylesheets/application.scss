@@ -18,13 +18,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.pull-right {
- margin-top: 15px;
- margin-bottom: 15px;
- margin-left: 800px;
- color: #9d9d9d;
+.navbar-right {
+  margin: 20px;
+  color: white;
 }
 
-.nav {
- margin-top: 5px;
+.navbar-brand {
+ margin: 5px;
+}
+
+.navbar-nav {
+ margin: 5px;
 }
