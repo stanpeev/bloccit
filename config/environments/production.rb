@@ -76,4 +76,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # http://stan-bloccit.herokuapp.com
+  config.action_mailer.default_url_options = { host: 'stan-bloccit.herokuapp.com'}
+
+  #Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  config.force_ssl = true
 end
