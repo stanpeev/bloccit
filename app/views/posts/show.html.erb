@@ -9,6 +9,13 @@
     </small>
     <p><%= @post.markdown_body %></p>
   </div>
+  <div class="col-md-8">
+    <% if @post.image? %>
+      </div class="col-md-8">
+       <%= image_tag(@post.image.big.url) %>
+      </div>
+    <% end %>
+  </div>
   <div class="col-md-4">
       <%= link_to "Summary", @summary_path, class: 'btn btn-success' %>
       <% if policy(@post).edit? %>
