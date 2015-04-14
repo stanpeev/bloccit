@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412151605) do
+ActiveRecord::Schema.define(version: 20150414144639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20150412151605) do
 
   add_index "posts", ["summary_id"], name: "index_posts_on_summary_id", using: :btree
 
-   create_table "summaries", force: true do |t|
+  create_table "summaries", force: :cascade do |t|
     t.string   "name"
     t.boolean  "public",      default: true
     t.text     "description"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20150412151605) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
