@@ -1,6 +1,9 @@
 class TopicsController < ApplicationController
+
+  require 'paginate.rb'
+
   def index
-    @topics = Topic.paginate(page: params[:page], per_page: 10)
+     @topics = Topic.paginate( page: params[:page], per_page: 10)
      authorize @topics
   end
 
@@ -11,7 +14,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
+     @posts = @topic.posts.paginate( page: params[:page], per_page: 10)
   end
 
   def edit
@@ -47,4 +50,13 @@ class TopicsController < ApplicationController
   def topic_params
     params.require(:topic).permit(:name, :description, :public)
   end
+
+   def set_page_info(count)
+      if params[:page] == nil
+        page = 1
+      else
+        page = params[:page].to_i
+      end
+      return {"page" => page, "perpage" => 10, "max_item" => count}
+   end
 end
