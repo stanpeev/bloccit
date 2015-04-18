@@ -15,7 +15,7 @@ end
 users = User.all
 
 #Create Topics
-1.times do
+15.times do
   Topic.create!(
     name:        Faker::Lorem.sentence,
     description: Faker::Lorem.paragraph
@@ -32,7 +32,7 @@ topics = Topic.all
  # The `save` method then saves this User to the database.
 
 #Create Posts
-1000.times do
+160.times do
   Post.create!(
     user: users.sample,
     topic: topics.sample,
@@ -54,9 +54,9 @@ Summaries = Summary.all
 
 
 #Create Comments
-300.times do 
+100.times do 
   Comment.create!(
-    # user: users.sample,   # we have not yet associated Users with Comments
+    user: users.sample,   # we have not yet associated Users with Comments
     post: posts.sample,
     body: Faker::Lorem.paragraph
     )
@@ -78,6 +78,35 @@ end
     )
 
 end
+
+# Create an admin user
+ admin = User.new(
+  name: 'Admin User',
+  email: 'admin@example.com',
+  password: 'helloworld',
+  role: 'admin'
+  )
+ admin.skip_confirmation!
+ admin.save!
+
+ # Create a moderator user
+ moderator = User.new(
+  name: 'Moderator User',
+  email: 'moderator@example.com',
+  password: 'helloworld',
+  role: 'moderator'
+  )
+ moderator.skip_confirmation!
+ moderator.save!
+
+  # Create a member
+ member = User.new(
+  name: 'Member User',
+  email: 'member@example.com',
+  password: 'helloworld',
+ )
+ member.skip_confirmation!
+ member.save!
 
 
 
