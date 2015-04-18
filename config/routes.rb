@@ -7,13 +7,12 @@ Rails.application.routes.draw do
  resources :advertisements
   resources :topics do
     resources :posts, except: [:index] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
+      resources :summaries, except: [:index]
     end
   end
 
-  resources :posts, except: [:index] do
-      resources :summaries, except: [:index]
-    end
+
 
 
 
