@@ -16,4 +16,10 @@ development:
   database: bloccit_development
   password: 
 
-
+test:
+  adapter: postgresql
+  encoding: utf8
+  database: bloccit_test
+  pool: 5
+  username: stanislavpeev
+  password:
