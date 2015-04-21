@@ -25,7 +25,7 @@ class Post < ActiveRecord::Base
     update_attribute(:rank, new_rank)
   end
 
-   
+    after_create :create_vote
 
   default_scope { order('rank DESC') }
 
@@ -44,6 +44,7 @@ class Post < ActiveRecord::Base
     def markdown_body
       render_as_markdown(self.body)
     end
+  
 
     private
 
@@ -52,5 +53,9 @@ class Post < ActiveRecord::Base
       extensions = {fenced_code_blocks: true}
       redcarpet = Redcarpet::Markdown.new(renderer, extensions)
       (redcarpet.render markdown).html_safe
+    end
+
+    def create_vote
+      votes.create(value: 1, user: user)
     end
 end

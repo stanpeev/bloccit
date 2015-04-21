@@ -11,8 +11,6 @@ before_action :load_post_and_vote
     redirect_to :back
   end
 
-  after_save :update_post
-
   private
 
   def load_post_and_vote
