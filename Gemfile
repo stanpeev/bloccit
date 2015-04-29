@@ -4,6 +4,7 @@ gem 'rails', '4.2.0'
 gem 'pg'
 group :production do
   gem 'rails_12factor'
+  gem 'puma'
 end
 
 gem 'bootstrap-sass'
@@ -12,6 +13,7 @@ group :development do
   gem 'sqlite3'
   gem 'rails-erd'
   gem 'pry-rails'
+  gem 'puma'
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
