@@ -12,11 +12,15 @@
     <p><%= @post.markdown_body %></p>
     <% if @comments %>
       <h3>Comments</h3>
+      <div class='js-comments'>
        <%= render partial: 'comments/comment', collection: @comments %>
+       </div>
     <% end %>
-    <% if policy(@comments).create? %>
-      <%= render partial: 'comments/form', locals: { post: @post } %>
-    <% end %>
+     <div class='new-comment'>
+      <% if policy(@comments).create? %>
+          <%= render partial: 'comments/form', locals: { post: @post } %>
+      <% end %>
+    </div>
   </div>
     <div class="col-md-4">
       <%= link_to "Summary", @summary_path, class: 'btn btn-success' %>
