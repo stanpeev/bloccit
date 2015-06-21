@@ -18,6 +18,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.container {
+  padding: auto;
+}
 
 .vote-arrows {
    width: 40px;
@@ -43,6 +46,8 @@
   border-color: #ffffff;
   line-height: 1.3333333;
   border-radius: 6px;
+
+
   }
 .jumbotron {
   background: rgba(147,206,222,1);
@@ -55,11 +60,14 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93cede', endColorstr='#49a5bf', GradientType=1 );
   text-align: center;
   color: white;
+  margin-top: -40px;
+  padding-top: 120px;
+  padding-bottom: 120px;
 
 }
 
 .bs-docs-masthead {
-  padding: 80px 0;
+  position: relative;
 }
 
 .jumbotron h1 {
@@ -82,7 +90,15 @@
   opacity: 0.5;
 }
 
-.navbar {
+.navbar-inverse {
   border-radius: 0px;
 }
 
+
+#bs-example-navbar-collapse-1 {
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}

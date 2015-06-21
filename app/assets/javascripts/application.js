@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+//Blocmetrics snippet to put in tracked application
+
+
+// wrap this up in a function
+
+$(document).ready( function(){
+  var _bm_event = {
+        event: { name: "pageLoad"},
+      }
+
+      var _bm_request = new XMLHttpRequest();
+      _bm_request.open("POST", "http://localhost:3000/api/create_event", true);
+      _bm_request.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+      _bm_request.onreadystatechange = function() {
+        // respond to controller finish events
+      };
+      debugger;
+      _bm_request.send(JSON.stringify(_bm_event));
+});
